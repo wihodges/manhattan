@@ -1,27 +1,29 @@
 // Grid
 // ------------------------------------------------------
 
-
 // Containers, row and general column
 // --------------------------------------
 
 // Main containers
-.container
-  @include outer-container
+.container {
+  @include outer-container;
+}
 
 // Rows
-.row
-  @include row()
+.row {
+  @include row;
+}
 
 // A basic column without a defined width or height
-.col
-  float: left
-  display: inline-block
+.col {
+  float: left;
+  display: inline-block;
+}
 
 [class^="col-"],
-[class*=" col-"]
-  padding: $col-padding
-
+[class*=" col-"] {
+  padding: $col-padding;
+}
 
 // Grid columns
 // --------------------------------------
@@ -74,88 +76,86 @@
 .col-lg-9,
 .col-lg-10,
 .col-lg-11,
-.col-lg-12
-  position: relative
+.col-lg-12 {
+  position: relative;
   // Prevent columns from collapsing when empty
-  min-height: 1px
+  min-height: 1px;
+}
 
-
-@if $responsive == true
-
+@if $responsive == true {
   // Extra small grid, i.e. phones
   // --------------------------------------
-  @include grid-core(xs)
-
+  @include grid-core(xs);
   // Create the omega core for max-width
-  @include media(max-width $screen-xs-max)
-    @include omega-core(xs)
-    
-
+  @include media(max-width $screen-xs-max) {
+    @include omega-core(xs);
+  }
 
   // Small Grid for tablets and large phones
   // --------------------------------------
-  @include media(min-width $screen-sm)
-    .container
-      max-width: $screen-sm
-    @include grid-core(sm)
+  @include media(min-width $screen-sm) {
+    .container {
+      max-width: $screen-sm;
+    }
+    @include grid-core(sm);
+  }
 
   // Create the omega core
-  @include media(min-width $screen-sm max-width $screen-sm-max)
-    @include omega-core(sm)
-
-
+  @include media(min-width $screen-sm max-width $screen-sm-max) {
+    @include omega-core(sm);
+  }
 
   // Medium grid for smaller computers
   // --------------------------------------
-  @include media(min-width $screen-md)
-    .container
-      max-width: $screen-md
-    @include grid-core(md)
+  @include media(min-width $screen-md) {
+    .container {
+      max-width: $screen-md;
+    }
+    @include grid-core(md);
+  }
 
   // Create the omega core for the screen size
-  @include media(min-width $screen-md max-width $screen-lg)
-    @include omega-core(md)
-
-
+  @include media(min-width $screen-md max-width $screen-lg) {
+    @include omega-core(md);
+  }
+}
 
 // Large grid for large computers
 // --------------------------------------
-@if $responsive == true
-  @include media(min-width $screen-lg)
+@if $responsive == true {
+  @include media(min-width $screen-lg) {
     // Set .container to become an outer-container with a max-width
-    .container
-      @include outer-container
-  
+    .container {
+      @include outer-container;
+    }
     // Create the grid
-    @include grid-core(lg)
+    @include grid-core(lg);
     // Create the omega core
-    @include omega-core(lg)
-
-@else
-  
+    @include omega-core(lg);
+  }
+}
+@else {
   // Set .container to become an outer-container with a max-width
-  .container
-    @include outer-container
-
-  .hadouken
-    font-size: 12px
-  
+  .container {
+    @include outer-container;
+  }
+  .hadouken {
+    font-size: 12px;
+  }
   // Create the grid
-  @include grid-core(lg)
+  @include grid-core(lg);
   // Create the omega core
-  @include omega-core(lg)
-  
+  @include omega-core(lg);
   // For convenience purposes, let's create all size columns so that
   // we can eventually roll out responsive without having to refactor
   // everything
-  @include grid-core(xs)
+  @include grid-core(xs);
   // Create the omega core
-  @include omega-core(xs)
-
-  @include grid-core(sm)
+  @include omega-core(xs);
+  @include grid-core(sm);
   // Create the omega core
-  @include omega-core(sm)
-
-  @include grid-core(md)
+  @include omega-core(sm);
+  @include grid-core(md);
   // Create the omega core
-  @include omega-core(md)
+  @include omega-core(md);
+}
